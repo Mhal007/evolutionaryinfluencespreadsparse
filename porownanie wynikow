@@ -1,0 +1,61 @@
+The Best indiv. for gen 134 can activate 34 others.
+67, 14, 18, 23, 53, 75, 85, 90, 120, 193, 
+
+
+The Best indiv. for gen 127 can activate 34 others.
+9, 12, 18, 23, 26, 31, 139, 85, 90, 111, 
+
+
+The Best indiv. for gen 466 can activate 34 others.
+9, 12, 16, 18, 23, 117, 86, 90, 168, 192, 
+
+
+The Best indiv. for gen 465 can activate 34 others.
+9, 12, 18, 23, 177, 38, 86, 90, 158, 192, 
+
+
+
+
+vector<int> row = {67, 14, 18, 23, 53, 75, 85, 90, 120, 193};
+Activated 8
+Activated 9
+Activated 14
+Activated 18
+Activated 19
+Activated 23
+Activated 27
+Activated 39
+Activated 40
+Activated 41
+Activated 43
+Activated 52
+Activated 53
+Activated 57
+Activated 61
+Activated 65	-----
+Activated 66
+Activated 67
+Activated 73
+Activated 74
+Activated 75
+Activated 83
+Activated 85
+Activated 86
+Activated 89
+Activated 90
+Activated 91
+Activated 96
+Activated 108
+Activated 109
+Activated 120
+Activated 129
+Activated 140
+Activated 156
+Activated 157
+Activated 163
+Activated 172
+Activated 179	-----
+Activated 180	-----
+Activated 186	-----
+Activated 192
+Activated 193

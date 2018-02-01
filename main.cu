@@ -28,53 +28,6 @@ void coutGPUStatus () {
 void coutResult(int& generation, int& max_fitness_value) {
     cout << "Generation " << generation << ", currently best individual can activate " << max_fitness_value << " others" << endl;
 }
-void coutInfluenceArray (int N, vector<vector<float>>& influence) {
-    cout << "Influence Array: \n";
-    for (int i=0; i<N; i++) {
-        for (int j=0; j<N; j++) {
-            float val = influence[i][j];
-            if (val == 0) {
-                cout << val << ",     ";
-            } else if (int(val * 1000) % 100 == 0) {
-                cout << val << ",   ";
-            } else {
-                cout << val << ",  ";
-            }
-        }
-        cout << "\n";
-    }
-    cout << "\n\n";
-}
-void coutValuesVector (vector<float> &inf_values) {
-    cout << "Values vector: (" << inf_values.size() << ")\n";
-    for (int i=0; i<inf_values.size(); i++) {
-        cout << inf_values[i] << ", ";
-    }
-    cout << "\n\n";
-}
-void coutColIndVector (vector<float> &inf_col_ind) {
-    cout << "ColInd vector: (" << inf_col_ind.size() << ")\n";
-    for (int i=0; i<inf_col_ind.size(); i++) {
-        cout << inf_col_ind[i] << ", ";
-    }
-    cout << "\n\n";
-}
-void coutRowPtrVector (vector<float> &inf_row_ptr) {
-    cout << "RowPtr vector: (" << inf_row_ptr.size() << ")\n";
-    for (int i=0; i<inf_row_ptr.size(); i++) {
-        cout << inf_row_ptr[i] << ", ";
-    }
-    cout << "\n\n";
-}
-void coutInfluenceArraySize (vector <vector<float>>& influence) {
-    cout << "Size of influence array: " << influence.size()*influence.size()*sizeof(float) << "\n\n";
-}
-void coutVectorsSize (vector<float>& inf_values, vector<float>& inf_col_ind, vector<float>& inf_row_ptr) {
-    cout << "Total size of vectors: "
-         <<   inf_values.size()  * sizeof(float)
-            + inf_col_ind.size() * sizeof(float)
-            + inf_row_ptr.size() * sizeof(float) << "\n\n";
-}
 void coutPopulation (vector <vector<int>>& population) {
     cout << "Population:";
     for (int i=0; i<population.size(); i++) {
@@ -123,45 +76,13 @@ void coutIndividual (vector <vector<int>>& population, int i) {
     cout << "\n\n";
 }
 
-void coutProgressBar (bool code, int size) {
-    string element = code ? "[#]" : "[ ]";
-
-    for (size_t i=0; i<size; i++) {
-        cout << element;
-    }
-    if (code) cout << "100%\n";
-    else      cout << "0%\n";
-}
-void coutProgressBar (int x, int y, int size) {
-    int val = std::round((float)x/y*size);
-
-    for (int i=0; i<size; i++) {
-        if(i<val) cout << "[#]";
-        else      cout << "[ ]";
-    }
-    cout << val*size << "%" << endl;
-}
-
-float timeDiff (timespec &start, timespec &end) {
-    if (end.tv_nsec-start.tv_nsec < 0) {
-        return ((end.tv_sec - start.tv_sec - 1) * 1000000000 + (end.tv_nsec - start.tv_nsec + 1000000000)) / 1000000 / (float)1000;
-    } else {
-        return ((end.tv_sec - start.tv_sec)     * 1000000000 + (end.tv_nsec - start.tv_nsec)) / 1000000 / (float)1000;
-    }
-}
-
 __device__ float getInfluenceValue (int N, int inf_values_size, float* d_inf_values, float* d_inf_col_ind, float* d_inf_row_ptr, int x, int y) {
     float infValue = 0;
 
     int min = d_inf_row_ptr[x];
     int max = x == N-1 ? inf_values_size-1 : d_inf_row_ptr[x+1]; //inf_values_size-1
-
-    //printf("min: %d\n", min);
-    //printf("max: %d\n", max);
     
     for (int i=min; i<max; i++) {
-        //printf("val: %f\n", d_inf_values[i]);
-    
         if (d_inf_col_ind[i] == y) {            
             infValue = d_inf_values[i];
             break;
@@ -181,36 +102,30 @@ __global__ void warmUp ()    // GPU warm-up before the main calculations - for b
 
 __global__ void InfluenceSpreadPopulationStep (bool *d_boolPopulMatrix, float *d_inf_values, float *d_inf_col_ind, float *d_inf_row_ptr, int N, int nrOfIndividuals, int inf_values_size, float threshold, bool *d_changed)
 {
-    //for (int q=0; q<1000; q++) { 
-        int id = blockIdx.x * blockDim.x + threadIdx.x; // unique ID number
-        int indiv_id = id / N;
-        int node_id  = id % N;
-        
-        //printf("(Indiv, node): (%d, %d)\n", indiv_id, node_id);
-        
-        if (indiv_id < nrOfIndividuals && node_id < N && d_changed[indiv_id]) {
-            float infValue = 0;                      // total value of influence on the node
-            for (int i=0; i<N; i++) {
-                if (d_boolPopulMatrix[indiv_id * N + i] && node_id != i) {  // if i-th element is active and is not the node
-                    
-                    //infValue += inf(i, node_id)
-                    
-                    float result = getInfluenceValue(N, inf_values_size, d_inf_values, d_inf_col_ind, d_inf_row_ptr, i, node_id);
-                        
-                    infValue += result;              // add i-th element influence on the node
-                    //printf("Influence %d on %d is: %f\n", i, node_id, result);
-                    //printf("\ninfValue: %f, id: %d", infValue, id);
-                }
-            }
-                
-            //printf("Total influence on %d is: %f\n", node_id, infValue);
-                
-            if (infValue >= threshold) {          // if total influence on the node is greater than or equal to the threshold value
-                //printf("\ninfValue: %f", infValue);
-                d_boolPopulMatrix[indiv_id * N + node_id] = true;           // activate the node
+    int id = blockIdx.x * blockDim.x + threadIdx.x; // unique ID number
+    int indiv_id = id / N;
+    int node_id  = id % N;
+
+    //printf("(Indiv, node): (%d, %d)\n", indiv_id, node_id);
+
+    if (indiv_id < nrOfIndividuals && node_id < N && d_changed[indiv_id]) {
+        float infValue = 0;                      // total value of influence on the node
+        for (int i=0; i<N; i++) {
+            if (d_boolPopulMatrix[indiv_id * N + i] && node_id != i) {  // if i-th element is active and is not the node
+
+                float result = getInfluenceValue(N, inf_values_size, d_inf_values, d_inf_col_ind, d_inf_row_ptr, i, node_id);
+
+                infValue += result;              // add i-th element influence on the node
+                //printf("Influence %d on %d is: %f\n", i, node_id, result);
+                //printf("\ninfValue: %f, id: %d", infValue, id);
             }
         }
-    //}
+
+
+        if (infValue >= threshold) {          // if total influence on the node is greater than or equal to the threshold value
+            d_boolPopulMatrix[indiv_id * N + node_id] = true;           // activate the node
+        }
+    }
 }
 
 vector <vector<float>> readData (string dataset_name, int N, string _EXPERIMENT_ID) {
@@ -242,11 +157,8 @@ vector <vector<float>> readData (string dataset_name, int N, string _EXPERIMENT_
 			//cout << line << endl;
 			istringstream iss(line);
 			int a, b;
+            
 			if (!(iss >> a >> b)) { cout << "ERROR" << endl; break; } // error
-
-			//cout << "a: " << a << ", b: " << b << endl;
-			//cout << "a: " << a + _csv_id_hack << ", b: " << b + _csv_id_hack;
-			//cout << ", N: " << N << endl;
 
 			if (a != b && a + _csv_id_hack < N && b + _csv_id_hack < N) {
 				influence[a + _csv_id_hack][b + _csv_id_hack] += 1;   // temp inf_values, calculating the total number of iteractions from "i" to "j"
@@ -279,7 +191,7 @@ vector <vector<float>> readData (string dataset_name, int N, string _EXPERIMENT_
 							cout << "Received array error";
 						}
 
-						/*cout << "saving inf values" << " from " << i << " to " << j << " it's: " << influence[i][j] << endl;*/
+						/*cout << i << "'s influence on " << j << " equals: " << influence[i][j] << endl;*/
 						outfile << i << " " << j << " " << influence[i][j] << "\n";
 					} else {
 						influence[i][j] = 0;
@@ -300,20 +212,6 @@ vector <vector<float>> readData (string dataset_name, int N, string _EXPERIMENT_
     return influence;
 }
 
-void arrayBoolToIndivVector (bool* individual, int size, vector<int>& intIndividual) {
-    intIndividual.clear();
-    intIndividual.swap(intIndividual);
-
-    cout << endl << endl << "INDIVIDUAL: " << endl;
-
-    for (int i=0; i<size; i++) {
-        cout << individual[i] << ",";
-        if (individual[i]) {
-            intIndividual.push_back(i);
-        }
-    }
-}
-
 void  defineInfluenceArrayAndVectors (string dataset_name, int N, vector<float>& inf_values, vector<float>& inf_col_ind, vector<float>& inf_row_ptr, string _EXPERIMENT_ID) {
     //cout << "File reading started." << endl;
 
@@ -328,6 +226,7 @@ void  defineInfluenceArrayAndVectors (string dataset_name, int N, vector<float>&
             //cout << "Reading line nr: " << line_nr << endl;
             istringstream iss(line);
             float a, b, c;
+            
             if (!(iss >> a >> b >> c)) { break; } // error
 
             if (c != 0) {
@@ -353,7 +252,7 @@ void  defineInfluenceArrayAndVectors (string dataset_name, int N, vector<float>&
         for (int i=0; i<N; i++) {
             bool added = false;
             for (int j=0; j<N; j++) {
-                //cout << "Influence " << i << " on " << j << " is: " << influence[i][j] << endl;
+                //cout << "Influence of " << i << " on " << j << " is equal to: " << influence[i][j] << endl;
                 if (influence[i][j] != 0) {
                     if (!added) {
                         inf_row_ptr.push_back(inf_values.size());
@@ -371,12 +270,6 @@ void  defineInfluenceArrayAndVectors (string dataset_name, int N, vector<float>&
                 //inf_row_ptr.push_back(-1);
             }
         }
-
-
-        //Removing influence matrix from memory
-        /*influence.clear();
-        influence.shrink_to_fit();
-        vector<float>().swap(influence);*/
 
         /*cout << "\n\n size of influence array: " << sizeof(influence) + sizeof(float) * influence.capacity() * influence.capacity();
         cout << "\n\n Total size of vectors: "
@@ -411,30 +304,8 @@ void  createPopulation (int nrOfIndividuals, int N, int toFind, vector <vector<i
     }
 }
 
-void populVectorToBoolMatrix (vector<vector<int>>& population, bool **boolPopulMatrix, int nrOfIndividuals, int toFind) {
-    for (int i=0; i<nrOfIndividuals; i++) {
-        for (int j=0; j<toFind; j++) {
-            boolPopulMatrix[i][population[i][j]] = true;
-        }
-    }
-}
-
-void setFitnessFromBoolMatrix (bool **boolPopulMatrix, int nrOfIndividuals, int N, vector<int>& fitness) {
-    int curr_fitness = 0;
-    for (int i=0; i<nrOfIndividuals; i++) {
-        for (int j=0; j<N; j++) {
-            if(boolPopulMatrix[i][j]) {
-                curr_fitness++;
-            }
-        }
-        fitness.push_back(curr_fitness);
-    }
-}
-
 void setPopulationFitness (vector<vector<int>>& population, int nrOfIndividuals, int N, int inf_values_size, float& threshold, int maxSteps, float *d_inf_values, float *d_inf_col_ind, float *d_inf_row_ptr, bool* d_boolPopulMatrix, bool* d_changed, int toFind, vector<int>& fitness) {
-        
     bool boolPopulMatrix[nrOfIndividuals][N];
-
     
     for (int i=0; i<nrOfIndividuals; i++) {
         for (int j=0; j<N; j++) {
@@ -445,15 +316,6 @@ void setPopulationFitness (vector<vector<int>>& population, int nrOfIndividuals,
         }
     }
     
-    /*
-    for (int i=0; i<nrOfIndividuals; i++) {
-        for (int j=0; j<N; j++) {
-            cout << boolPopulMatrix[i][j] << ", ";
-        }
-        cout << "\n";
-    }
-    */
-
     cudaError_t err;
 
     err = cudaMemcpy(d_boolPopulMatrix, boolPopulMatrix, sizeof(bool)*nrOfIndividuals*N, cudaMemcpyHostToDevice);    
@@ -641,20 +503,6 @@ bool anyLimitReached(bool isRelativeResultLimit, int resultStep, float resultMin
     int   now  = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
     float diff = (now - start) / 1000.0;
 	
-	/*cout << endl << endl << "Generation " << generation << " started.";
-	cout << endl << "results buffer: ";
-	for (int i = 0; i < resultsBuffer.size(); i++) {
-		cout << resultsBuffer[i] << ", ";
-	}
-	cout << endl << "Previous result: " << result;
-	if (generation > resultStep) {
-		cout << endl << "Comparing with: " << resultsBuffer[0];
-	} else {
-		cout << endl << "No comparison, not enough results";
-	}
- 	cout << endl << endl;
-    */
-    
     bool anyLimit = 
        isRelativeResultLimit && generation >  resultStep && result < resultsBuffer[0] * (1 + resultMinDiff) 
     || isGenerationsLimit    && generation >= generationsLimit 
@@ -677,25 +525,6 @@ void  performWarmup () {
     warmUp << <1024, 1024>> >();
 }
 
-void copyToDevice (vector<float>& element, int& size, float *d_element) {
-    if (cudaMalloc(&d_element, size) != cudaSuccess) {
-        cout << "Error allocating memory for d_element." << endl;
-    }
-
-    float* elementArray = &element[0];
-
-    if (cudaMemcpy(d_element, elementArray, size, cudaMemcpyHostToDevice) != cudaSuccess) {
-        cout << "Error copying influence to d_influence." << endl;
-        cudaFree(d_element);
-    }
-}
-
-void mallocOnDevice (int& size, bool* d_element) {
-    if (cudaMalloc(&d_element, size) != cudaSuccess) {
-        cout << "Error allocating memory for d_boolIndiv." << endl;
-    }
-}
-
 vector<string> getFileNames (string path) {
     DIR *pDIR;
     struct dirent *entry;
@@ -713,8 +542,7 @@ vector<string> getFileNames (string path) {
 }
 
 
-
-
+/* pearson, spearman */
 float mean (vector<float> values) {
     float sum  = 0;
     int    size = values.size();
@@ -748,9 +576,6 @@ float pearson_denominator (vector<float> A, vector<float> B, float meanA, float 
         denominator2_sum += pow(B[i] - meanB, 2);
     }
     
-    //cout << denominator1_sum << endl;
-    //cout << denominator2_sum << endl;
-    
     denominator1 = pow(denominator1_sum, 0.5);
     denominator2 = pow(denominator2_sum, 0.5);
     
@@ -772,10 +597,6 @@ float pearson (vector<float> A, vector<float> B) {
     float numerator   = pearson_numerator(A, B, meanA, meanB);
     float denominator = pearson_denominator(A, B, meanA, meanB);
     
-    //denominator
-    
-    //cout << "numerator: " << numerator << endl;
-    
     return numerator / denominator;
 }
 
@@ -784,33 +605,13 @@ vector<float> toRank (vector<float> A) {
     sort(sorted.begin(), sorted.end());
     
     vector<float> rank;
-    
-    /*
-    cout << endl << "Values: " << endl;
-    for (int i = 0; i < A.size(); i++) {
-        cout << A[i] << ", ";
-    }
-    cout << endl << endl;
-    */
-    
-    /*
-    cout << "Sorted: " << endl;
-    for (int i = 0; i < sorted.size(); i++) {
-        cout << sorted[i] << ", ";
-    }
-    cout << endl << endl;
-    */
-    
-    for (int i = 0; i < A.size(); i++) {
-        //cout << endl << "Value: " << A[i] << endl;
         
-        
+    for (int i = 0; i < A.size(); i++) {
         vector<int> positions;
-        //cout << "Positions: " << endl;
+        
         for (int j = 0; j < A.size(); j++) {
             if (sorted[j] == A[i]) {
                 positions.push_back(j);
-                //cout << j << endl;
             }
         }
         
@@ -821,9 +622,7 @@ vector<float> toRank (vector<float> A) {
             sum += positions[j] + 1;
         }
         
-        //cout << "Sum: " << sum << endl;
         avg = sum / positions.size();
-        //cout << "Avg: " << avg << endl;
         
         rank.push_back(avg);
         //rank.push_back(positions[positions.size()-1] + 1); //libreoffice calc rank
@@ -840,7 +639,6 @@ vector<float> toRank (vector<float> A) {
     return rank;
 }
 
-
 float spearman (vector<float> A, vector<float> B) {
     vector<float> A_ranked = toRank(A);
     vector<float> B_ranked = toRank(B);
@@ -848,13 +646,6 @@ float spearman (vector<float> A, vector<float> B) {
     return pearson(A_ranked, B_ranked);
 }
 
-
-
-// ### REFACTORING ###
-// TODO Unify parameters order
-// TODO Unify parameters and variables naming
-// TODO Couts (introduce log file saving, main console only crucial information (phase)
-// TODO Delete references for const variables
 
 int main (int argc, char* argv[]) {
     srand (time(NULL));
@@ -881,7 +672,6 @@ int main (int argc, char* argv[]) {
     bool saveResultsCorrelation = true;
 
 
-
     
     /*   Parameters    */
     //int groupSize          = 20;                 // 10,    20,   30                        // 2,    5,    10,   20,  50
@@ -897,12 +687,10 @@ int main (int argc, char* argv[]) {
     float a_mutation_ratio  [3] = {0.7,   0.8,  0.9};  // 0.7,   0.8,  0.9
 	int parameters_sets = 3 * 3 * 3 * 3 * 3;
 
-    // 3 wartości ^ 5 parametrów * 30 min * 3 datasety = 243 * 90min = 15 dni + 4,5h
-
     int percToFind  = 5;
 	int maxSteps    = 10000;
     float threshold = 0.5;
-	
+    
 	
     vector<string> datasets = getFileNames("./experiments_" + _EXPERIMENT_ID);
 	
@@ -912,20 +700,18 @@ int main (int argc, char* argv[]) {
         results.push_back(row);
     }
     
-    //cout << endl << endl;
+    
     for (int file_id=0; file_id<datasets.size(); file_id++) {
 		int dataset_id = file_id;		//TODO to refactor
 		
 		string dataset_name = datasets[file_id];
-        //cout << dataset_name << ", ";
 		
 		stringstream ssname(dataset_name);
 		string token;
 		getline(ssname, token, '-');
 		getline(ssname, token, '-');
 		
-		//cout << "N: " << token << endl;
-		
+        
 		int maxSize = stoi(token);
    		int N       = min(1000, maxSize);
 		int toFind  = (int)ceil(float(percToFind * N) / 100.0);
@@ -959,21 +745,13 @@ int main (int argc, char* argv[]) {
 		vector <float> inf_row_ptr;
 		vector <float> inf_values;
 
+
 		defineInfluenceArrayAndVectors(dataset_name, N, inf_values, inf_col_ind, inf_row_ptr, _EXPERIMENT_ID);
         
-
-
-        int inf_values_size = inf_values.size();
-
-        //for (int i=0; i<inf_values_size; i++) {
-        //    cout << "i: " << inf_values[i] << endl;
-        //}
-
+        
         cudaError_t err;
         
-        
-        
-
+             
         float* d_inf_values;        
         err = cudaMalloc(&d_inf_values, sizeof(float) * inf_values.size());
 
@@ -1048,14 +826,14 @@ int main (int argc, char* argv[]) {
 
         
 
+        int inf_values_size = inf_values.size();
         int parameters_set = 1;
         for (int groupSize_i = 0; groupSize_i < sizeof(a_groupSize)/sizeof(*a_groupSize); groupSize_i++) {
             int groupSize = a_groupSize[groupSize_i];
 
             for (int nrOfIndividuals_i = 0; nrOfIndividuals_i < sizeof(a_nrOfIndividuals)/sizeof(*a_nrOfIndividuals); nrOfIndividuals_i++) {
                 int nrOfIndividuals = (int)ceil(N/a_nrOfIndividuals[nrOfIndividuals_i]);
-                
-                
+                               
                 
                 bool* d_boolPopulMatrix;       
                 err = cudaMalloc(&d_boolPopulMatrix, sizeof(bool)*nrOfIndividuals*N);
@@ -1067,7 +845,6 @@ int main (int argc, char* argv[]) {
                 }
 
 
-
                 bool* d_changed;  
                 err = cudaMalloc(&d_changed, sizeof(bool) * nrOfIndividuals);    
                 if (err != cudaSuccess) {
@@ -1076,7 +853,6 @@ int main (int argc, char* argv[]) {
                     return 0;
                 }
                 
-
 
                 for (int crossover_ratio_i = 0; crossover_ratio_i < sizeof(a_crossover_ratio)/sizeof(*a_crossover_ratio); crossover_ratio_i++) {
                     float crossover_ratio = a_crossover_ratio[crossover_ratio_i];
@@ -1115,8 +891,6 @@ int main (int argc, char* argv[]) {
 
                                     //coutGPUStatus();
 
-                                    //coutProgressBar(generation,generationsLimit,progressBarLength);
-
                                     temp1 = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
                                     //cout << endl << "[progressBar]: " << (temp1 - temp2) / 1000.0 << "s"<< endl;
 
@@ -1145,8 +919,6 @@ int main (int argc, char* argv[]) {
 
                                     generation++;
                                 }
-
-                                //coutProgressBar(true,progressBarLength);
                                 
                                 cout << endl << "[FINISHED] test:  " << test+1 << "/" << tests 
                                     << "  for parameters set nr:  " << parameters_set << "/" << parameters_sets 
@@ -1183,12 +955,6 @@ int main (int argc, char* argv[]) {
 
                                 //cout << endl << endl << "This group can activate " << max_fitness_value << " others";
                                 //cout << endl << "Time elapsed: " << (temp2 - start) / 1000.0 << "s" << endl;
-
-                                // clearing the memory 
-                                // vector<float>().swap(inf_col_ind);
-                                // vector<float>().swap(inf_row_ptr);
-                                // vector<float>().swap(inf_values);
-                                // cudaFree (?)
 
                             } // TEST
                             

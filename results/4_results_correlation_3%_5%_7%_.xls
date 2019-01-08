@@ -1,0 +1,62 @@
+<?xml version='1.0'?>
+<Workbook xmlns='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:o='urn:schemas-microsoft-com:office:office'
+ xmlns:x='urn:schemas-microsoft-com:office:excel'
+ xmlns:ss='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:html='http://www.w3.org/TR/REC-html40'>
+ <Worksheet ss:Name='Sheet1'>
+  <Table>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>facebook 3%</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook 5%</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook 7%</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook 3%</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.976665</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.976990</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook 5%</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.992731</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook 7%</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+   <Row></Row>
+   <Row></Row>
+   <Row></Row>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>facebook 3%</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook 5%</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook 7%</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook 3%</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.775951</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.774297</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook 5%</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.858549</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook 7%</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>

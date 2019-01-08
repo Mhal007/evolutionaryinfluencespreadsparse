@@ -1,0 +1,254 @@
+<?xml version='1.0'?>
+<Workbook xmlns='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:o='urn:schemas-microsoft-com:office:office'
+ xmlns:x='urn:schemas-microsoft-com:office:excel'
+ xmlns:ss='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:html='http://www.w3.org/TR/REC-html40'>
+ <Worksheet ss:Name='Sheet1'>
+  <Table>
+   <Row>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-0.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-1.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-1.0.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.01.csv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-0.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>-0.027117</Data></Cell>
+    <Cell><Data ss:Type='String'>0.043445</Data></Cell>
+    <Cell><Data ss:Type='String'>0.039964</Data></Cell>
+    <Cell><Data ss:Type='String'>0.127110</Data></Cell>
+    <Cell><Data ss:Type='String'>0.035472</Data></Cell>
+    <Cell><Data ss:Type='String'>0.039196</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.042191</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.083547</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.035677</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.032796</Data></Cell>
+    <Cell><Data ss:Type='String'>0.046256</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.032865</Data></Cell>
+    <Cell><Data ss:Type='String'>0.088878</Data></Cell>
+    <Cell><Data ss:Type='String'>0.054150</Data></Cell>
+    <Cell><Data ss:Type='String'>0.027452</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.118028</Data></Cell>
+    <Cell><Data ss:Type='String'>0.095136</Data></Cell>
+    <Cell><Data ss:Type='String'>0.027477</Data></Cell>
+    <Cell><Data ss:Type='String'>0.071659</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.005352</Data></Cell>
+    <Cell><Data ss:Type='String'>0.073855</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.085284</Data></Cell>
+    <Cell><Data ss:Type='String'>0.051175</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.032882</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.025602</Data></Cell>
+    <Cell><Data ss:Type='String'>0.064481</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>-0.006811</Data></Cell>
+    <Cell><Data ss:Type='String'>0.033751</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.073994</Data></Cell>
+    <Cell><Data ss:Type='String'>0.021913</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-1.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.114176</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.049803</Data></Cell>
+    <Cell><Data ss:Type='String'>0.007296</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-1.0.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.078669</Data></Cell>
+    <Cell><Data ss:Type='String'>0.170900</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.085309</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.01.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row></Row>
+   <Row></Row>
+   <Row></Row>
+   <Row>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-0.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-1.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-1.0.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.01.csv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-0.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.144462</Data></Cell>
+    <Cell><Data ss:Type='String'>0.065170</Data></Cell>
+    <Cell><Data ss:Type='String'>0.120000</Data></Cell>
+    <Cell><Data ss:Type='String'>0.206666</Data></Cell>
+    <Cell><Data ss:Type='String'>0.017021</Data></Cell>
+    <Cell><Data ss:Type='String'>0.057818</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.067057</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.037560</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.050922</Data></Cell>
+    <Cell><Data ss:Type='String'>0.072579</Data></Cell>
+    <Cell><Data ss:Type='String'>0.027640</Data></Cell>
+    <Cell><Data ss:Type='String'>0.072156</Data></Cell>
+    <Cell><Data ss:Type='String'>0.045253</Data></Cell>
+    <Cell><Data ss:Type='String'>0.025875</Data></Cell>
+    <Cell><Data ss:Type='String'>0.076474</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.25.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.105495</Data></Cell>
+    <Cell><Data ss:Type='String'>0.154039</Data></Cell>
+    <Cell><Data ss:Type='String'>0.032279</Data></Cell>
+    <Cell><Data ss:Type='String'>0.079739</Data></Cell>
+    <Cell><Data ss:Type='String'>0.062069</Data></Cell>
+    <Cell><Data ss:Type='String'>0.090586</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.057549</Data></Cell>
+    <Cell><Data ss:Type='String'>0.010786</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.096056</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.047858</Data></Cell>
+    <Cell><Data ss:Type='String'>0.021031</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.055806</Data></Cell>
+    <Cell><Data ss:Type='String'>0.147451</Data></Cell>
+    <Cell><Data ss:Type='String'>-0.033872</Data></Cell>
+    <Cell><Data ss:Type='String'>0.133736</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-1.5.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.156183</Data></Cell>
+    <Cell><Data ss:Type='String'>0.017092</Data></Cell>
+    <Cell><Data ss:Type='String'>0.041774</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-1.0.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.123361</Data></Cell>
+    <Cell><Data ss:Type='String'>0.118606</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'>0.066269</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.01.csv</Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+    <Cell><Data ss:Type='String'></Data></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>

@@ -1,0 +1,62 @@
+<?xml version='1.0'?>
+<Workbook xmlns='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:o='urn:schemas-microsoft-com:office:office'
+ xmlns:x='urn:schemas-microsoft-com:office:excel'
+ xmlns:ss='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:html='http://www.w3.org/TR/REC-html40'>
+ <Worksheet ss:Name='Sheet1'>
+  <Table>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>enron-87273</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook-46952</Data></Cell>
+    <Cell><Data ss:Type='String'>digg-30398</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>enron-87273</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>-0.600695</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.572254</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook-46952</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.995569</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>digg-30398</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+   <Row></Row>
+   <Row></Row>
+   <Row></Row>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>enron-87273</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook-46952</Data></Cell>
+    <Cell><Data ss:Type='String'>digg-30398</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>enron-87273</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>-0.499507</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.478357</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook-46952</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.993436</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>digg-30398</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>

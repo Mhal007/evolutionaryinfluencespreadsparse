@@ -1,0 +1,110 @@
+Position on average best indexes: 
+167, 212, 200, 191, 182, 185, 194, 173, 203, 199, 
+
+Excel row numbers: 
+1849, 2344, 2212, 2113, 2014, 2047, 2146, 1915, 2245, 2201, 
+Avg position: 9.5
+Avg position: 9.66667
+Avg position: 12.6667
+Avg position: 13.5
+Avg position: 13.6667
+Avg position: 13.8333
+Avg position: 14.3333
+Avg position: 15
+Avg position: 19.5
+Avg position: 20.5
+
+
+groupSize	nrOfIndividuals	crossover_ratio	mutation_potency	mutation_ratio
+
+30	83	0,6	0,01	0,9
+30	100	0,8	0,01	0,9
+30	100	0,7	0,001	0,9
+30	100	0,6	0,001	0,9
+30	83	0,8	0,001	0,9
+30	83	0,8	0,01	0,9
+30	100	0,6	0,01	0,9
+30	83	0,7	0,001	0,9
+30	100	0,7	0,01	0,9
+30	100	0,7	0,001	0,8
+
+
+
+
+
+
+==== 3%, 4%, 5% coparison part ====
+
+- BEST:
+
+Excel row numbers: 1849
+Avg position: 10
+
+groupSize	nrOfIndividuals	crossover_ratio	mutation_potency	mutation_ratio
+
+30	83	0,6	0,01	0,9
+
+
+
+- MIDDLE:
+
+Excel row numbers: 155
+Avg position: 127
+
+groupSize	nrOfIndividuals	crossover_ratio	mutation_potency	mutation_ratio
+
+10	83	0,7	0,01	0,8
+
+
+
+- WORST:
+
+Excel row numbers: 397
+Avg position: 229
+
+groupSize	nrOfIndividuals	crossover_ratio	mutation_potency	mutation_ratio
+
+10	100	0,6	0,1	0,9
+
+
+
+
+
+
+
+facebook:
+5%, best: 319
+5%, middle: 304
+5%, worst: 236
+
+3%, best: 228
+3%, middle: 220
+3%, worst: 189
+
+7%, best: 377
+7%, middle: 355
+7%, worst: 283
+
+
+
+
+
+==== 243 parameters sets === FB 3%, 5%, 7% ===
+
+Position on average best indexes: 
+194, 173, 238, 167, 101, 200, 203, 236, 208, 122, 
+
+Excel row numbers: 
+2146, 1915, 2630, 1849, 1123, 2212, 2245, 2608, 2300, 1354, 
+Avg position: 4.33333
+Avg position: 7
+Avg position: 9.33333
+Avg position: 10.6667
+Avg position: 15.3333
+Avg position: 15.6667
+Avg position: 18
+Avg position: 18
+Avg position: 18.3333
+Avg position: 18.6667
+
+

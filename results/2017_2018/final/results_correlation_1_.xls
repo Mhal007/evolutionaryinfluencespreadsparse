@@ -1,0 +1,62 @@
+<?xml version='1.0'?>
+<Workbook xmlns='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:o='urn:schemas-microsoft-com:office:office'
+ xmlns:x='urn:schemas-microsoft-com:office:excel'
+ xmlns:ss='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:html='http://www.w3.org/TR/REC-html40'>
+ <Worksheet ss:Name='Sheet1'>
+  <Table>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.156745</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.201498</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-1.csv</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.718457</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+   <Row></Row>
+   <Row></Row>
+   <Row></Row>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>BA-1000-1.csv</Data></Cell>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER-1000-0.05.csv</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.071908</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.131946</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA-1000-1.csv</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.747230</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS-1000-0.1.csv</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>

@@ -1,0 +1,28 @@
+
+
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
+
+export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64\ ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+sudo update-initramfs -u
+
+nsight
+
+
+
+
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}} && export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\ ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}} && sudo update-initramfs -u && nsight
+
+
+
+standard:
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}} && nsight
+
+
+
+better:
+export CUDA_HOME=/usr/local/cuda-10.0 && export LD_LIBRARY_PATH=${CUDA_HOME}/lib64 && export PATH=${CUDA_HOME}/bin:${PATH} && ulimit -s 32768 && export CUDA_VISIBLE_DEVICES="1"
+
+
+start:
+nvcc -std=c++11 main.cu && ./a.out 0

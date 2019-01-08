@@ -1,0 +1,140 @@
+<?xml version='1.0'?>
+<Workbook xmlns='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:o='urn:schemas-microsoft-com:office:office'
+ xmlns:x='urn:schemas-microsoft-com:office:excel'
+ xmlns:ss='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:html='http://www.w3.org/TR/REC-html40'>
+ <Worksheet ss:Name='Sheet1'>
+  <Table>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>digg</Data></Cell>
+    <Cell><Data ss:Type='String'>enron</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook</Data></Cell>
+    <Cell><Data ss:Type='String'>BA</Data></Cell>
+    <Cell><Data ss:Type='String'>ER</Data></Cell>
+    <Cell><Data ss:Type='String'>WS</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>digg</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>-0.334875</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.969826</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.983044</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.981416</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.973173</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>enron</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>-0.439956</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.361895</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.369194</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.238781</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.980654</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.982643</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.941297</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.997900</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.982411</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.977399</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+   <Row></Row>
+   <Row></Row>
+   <Row></Row>
+   <Row>
+    <Cell></Cell>
+    <Cell><Data ss:Type='String'>digg</Data></Cell>
+    <Cell><Data ss:Type='String'>enron</Data></Cell>
+    <Cell><Data ss:Type='String'>facebook</Data></Cell>
+    <Cell><Data ss:Type='String'>BA</Data></Cell>
+    <Cell><Data ss:Type='String'>ER</Data></Cell>
+    <Cell><Data ss:Type='String'>WS</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>digg</Data></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>-0.126825</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.829876</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.928840</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.933472</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.940995</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>enron</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>-0.211587</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.116273</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.101590</Data></Cell>
+    <Cell><Data ss:Type='Number'>-0.078140</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>facebook</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.859145</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.857908</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.842263</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>BA</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.981319</Data></Cell>
+    <Cell><Data ss:Type='Number'>0.974885</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>ER</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell><Data ss:Type='Number'>0.965327</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type='String'>WS</Data></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+    <Cell></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>

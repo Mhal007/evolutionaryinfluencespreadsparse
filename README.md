@@ -1,5 +1,5 @@
-Implementation of the algorithm used in an article: "Evolutionary algorithm for seed selection in social influence process", published in: "2016 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)".
+Implementation of the algorithm used in an article: "Finding influentials in social networks using evolutionary algorithm", published in the Journal of Computational Science 31 (2019): 77-85.
 
-Reference: https://ieeexplore.ieee.org/abstract/document/7752390
+Reference: https://www.sciencedirect.com/science/article/pii/S187775031830070X
 
 Includes networks used as well as all of the results obtained.
